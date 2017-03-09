@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "coveralls": "2.3.x",
-    "handroll": "0.3.8",
+    "handroll": "0.4.5",
     "istanbul": "0.1.x",
     "mocha": "1.12.x",
     "mocha-istanbul": "0.2.x",

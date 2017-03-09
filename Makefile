@@ -33,7 +33,7 @@ test-ci-coverage:
 	@echo Done
 
 compile:
-	$(HANDROLL) src/index.js --format lib
+	$(HANDROLL) src/index.js --format es --format cjs
 	$(UGLIFYJS) --mangle -b beautify=false,ascii-only=true --output $(OUT_MIN) $(OUT)
 	@echo "$(BANNER)" | cat - $(OUT_MIN) > temp && mv temp $(OUT_MIN)
 
