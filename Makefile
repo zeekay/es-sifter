@@ -1,9 +1,10 @@
 .PHONY: compile test test-ci release benchmark
 
-MOCHA=node_modules/.bin/mocha
 COVERALLS=node_modules/.bin/coveralls
-_MOCHA=node_modules/.bin/_mocha
+HANDROLL=node_modules/.bin/handroll
 ISTANBUL=node_modules/.bin/istanbul
+MOCHA=node_modules/.bin/mocha
+_MOCHA=node_modules/.bin/_mocha
 UGLIFYJS=node_modules/.bin/uglifyjs
 
 OUT=sifter.js
@@ -32,7 +33,7 @@ test-ci-coverage:
 	@echo Done
 
 compile:
-	@cp lib/sifter.js sifter.js
+	$(HANDROLL) src/index.js --format lib
 	$(UGLIFYJS) --mangle -b beautify=false,ascii-only=true --output $(OUT_MIN) $(OUT)
 	@echo "$(BANNER)" | cat - $(OUT_MIN) > temp && mv temp $(OUT_MIN)
 
